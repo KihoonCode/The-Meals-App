@@ -1,10 +1,14 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Button } from 'react-native';
 
 const MealDetailScreen = props => {
     return (
         <View style={styles.screen}>
             <Text>This is MealDetailScreen!</Text>
+            <Button
+                title="Inspect detail screen"
+                onPress={() => { }}
+            />
         </View>
     );
 };
