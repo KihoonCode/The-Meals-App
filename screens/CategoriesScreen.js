@@ -1,13 +1,34 @@
 import React from 'react';
-import { StyleSheet, View, Text, Button } from 'react-native';
+import { StyleSheet, View, Text, Button, FlatList } from 'react-native';
+
+import { CATEGORIES } from '../data/dummy-data';
 
 const CategoriesScreen = props => {
+    const renderData = itemData => {
+        return (
+            <View style={styles.category}>
+                <Text>
+                    {itemData.item.title}
+                </Text>
+            </View>
+        );
+    }
+
     return (
         <View style={styles.screen}>
-            <Text>This is CategoriesScreen!</Text>
+            <FlatList
+                numColumns={2}
+                data={CATEGORIES}
+                renderItem={renderData}
+            />
             <Button
-                title="Inspect detail screen"
-                onPress={() => {props.navigation.navigate('Categories')}}
+                title="Go to CategoryMeals"
+                onPress={() => {
+                    props.navigation.navigate({
+                        routeName: 'CategoryMeals'
+                    })}
+                }
+
             />
         </View>
     );
@@ -18,6 +39,11 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignContent: 'center'
+    },
+    category: {
+        flex: 1,
+        margin: 15,
+        height: 150
     }
 });
 
