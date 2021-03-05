@@ -1,5 +1,6 @@
 import Category from '../models/category';
 
+// temporary data
 export const CATEGORIES = [
     new Category('c1', 'Italian', '#f5428d'),
     new Category('c2', 'Quick & Easy', '#f54242'),
