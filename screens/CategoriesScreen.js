@@ -1,16 +1,39 @@
 import React from 'react';
-import { StyleSheet, View, Text, Button, FlatList } from 'react-native';
+import {
+    StyleSheet,
+    View,
+    Text,
+    Button,
+    FlatList,
+    TouchableOpacity,
+    Platform
+} from 'react-native';
 
 import { CATEGORIES } from '../data/dummy-data';
+import Colors from '../constants/Colors';
+import CategoryMealScreen from './CategoryMealScreen';
 
 const CategoriesScreen = props => {
+
+    /**
+     * Returns touchable category menu that is linked to corresponding detail menu.
+     */
     const renderData = itemData => {
         return (
-            <View style={styles.category}>
-                <Text>
-                    {itemData.item.title}
-                </Text>
-            </View>
+            <TouchableOpacity
+                style={styles.category}
+                onPress={() => {
+                    props.navigation.navigate({
+                        routeName: 'CategoryMeals'
+                    })
+                }}
+            >
+                <View>
+                    <Text>
+                        {itemData.item.title}
+                    </Text>
+                </View>
+            </TouchableOpacity>
         );
     }
 
@@ -21,19 +44,20 @@ const CategoriesScreen = props => {
                 data={CATEGORIES}
                 renderItem={renderData}
             />
-            <Button
-                title="Go to CategoryMeals"
-                onPress={() => {
-                    props.navigation.navigate({
-                        routeName: 'CategoryMeals'
-                    })}
-                }
-
-            />
         </View>
     );
 };
 
+// Top header style 
+CategoryMealScreen.navigationOptions = {
+    headerTitle: 'Categories',
+    headerStyle: {
+        backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
+    },
+    headerTintColor: Platform.OS === 'android' ? 'white' : ''
+}
+
+// Ovearall Style
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
