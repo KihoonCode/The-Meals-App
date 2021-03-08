@@ -52,7 +52,7 @@ const CategoriesScreen = props => {
 };
 
 // Top header style 
-CategoryMealScreen.navigationOptions = {
+CategoriesScreen.navigationOptions = {
     headerTitle: 'Categories',
     headerStyle: {
         backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
