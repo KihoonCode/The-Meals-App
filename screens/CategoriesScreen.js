@@ -3,14 +3,11 @@ import {
     StyleSheet,
     View,
     Text,
-    Button,
     FlatList,
-    TouchableOpacity,
-    Platform
+    TouchableOpacity
 } from 'react-native';
 
 import { CATEGORIES } from '../data/dummy-data';
-import Colors from '../constants/Colors';
 import CategoryMealScreen from './CategoryMealScreen';
 
 const CategoriesScreen = props => {
@@ -53,11 +50,7 @@ const CategoriesScreen = props => {
 
 // Top header style 
 CategoriesScreen.navigationOptions = {
-    headerTitle: 'Categories',
-    headerStyle: {
-        backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
-    },
-    headerTintColor: Platform.OS === 'android' ? 'white' : ''
+    headerTitle: 'Meal Categories',
 }
 
 // Ovearall Style
