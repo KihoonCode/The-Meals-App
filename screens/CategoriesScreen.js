@@ -3,12 +3,11 @@ import {
     StyleSheet,
     View,
     Text,
-    FlatList,
-    TouchableOpacity
+    FlatList
 } from 'react-native';
 
 import { CATEGORIES } from '../data/dummy-data';
-import CategoryMealScreen from './CategoryMealScreen';
+import CategoryGridTile from '../components/CategoryGridTile';
 
 const CategoriesScreen = props => {
 
@@ -17,9 +16,8 @@ const CategoriesScreen = props => {
      */
     const renderData = itemData => {
         return (
-            <TouchableOpacity
-                style={styles.category}
-                onPress={() => {
+            <CategoryGridTile
+                onSelect={() => {
                     props.navigation.navigate({
                         routeName: 'CategoryMeals',
                         params: {
@@ -27,24 +25,18 @@ const CategoriesScreen = props => {
                         }
                     })
                 }}
-            >
-                <View>
-                    <Text>
-                        {itemData.item.title}
-                    </Text>
-                </View>
-            </TouchableOpacity>
+                title={itemData.item.title}
+                color={itemData.item.color}
+            />
         );
     }
 
     return (
-        <View style={styles.screen}>
-            <FlatList
-                numColumns={2}
-                data={CATEGORIES}
-                renderItem={renderData}
-            />
-        </View>
+        <FlatList
+            numColumns={2}
+            data={CATEGORIES}
+            renderItem={renderData}
+        />
     );
 };
 
@@ -59,11 +51,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignContent: 'center'
-    },
-    category: {
-        flex: 1,
-        margin: 15,
-        height: 150
     }
 });
 
