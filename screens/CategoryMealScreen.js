@@ -10,9 +10,13 @@ const CategoryMealScreen = props => {
     const selectedMeals = MEALS.filter(meal =>
         meal.categoryIds.indexOf(categoryID) >= 0);
     
+    /**
+     * Renders appropriate meal based on selected category.
+     */
     const renderMealItems = itemData => {
         return (
             <MealItem 
+                onSelected={() => {}}
                 title={itemData.item.title}
                 bgImage={itemData.item.imageUrl}
                 duration={itemData.item.duration}
