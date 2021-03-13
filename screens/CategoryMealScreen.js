@@ -7,6 +7,7 @@ import MealItem from '../components/MealItem';
 const CategoryMealScreen = props => {
     const categoryID = props.navigation.getParam('categoryID');
 
+    // user selected meal 
     const selectedMeals = MEALS.filter(meal =>
         meal.categoryIds.indexOf(categoryID) >= 0);
     
