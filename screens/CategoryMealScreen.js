@@ -10,14 +10,23 @@ const CategoryMealScreen = props => {
     // user selected meal 
     const selectedMeals = MEALS.filter(meal =>
         meal.categoryIds.indexOf(categoryID) >= 0);
-    
+
     /**
      * Renders appropriate meal based on selected category.
      */
     const renderMealItems = itemData => {
         return (
-            <MealItem 
-                onSelected={() => {}}
+            <MealItem
+                onSelected={() => {
+                    props.navigation.navigate(
+                        {
+                            routeName: 'MealDetail',
+                            params: {
+                                mealId: itemData.item.id,
+                                title: itemData.item.title
+                            }
+                        })
+                }}
                 title={itemData.item.title}
                 bgImage={itemData.item.imageUrl}
                 duration={itemData.item.duration}
@@ -29,7 +38,7 @@ const CategoryMealScreen = props => {
 
     return (
         <View style={styles.screen}>
-            <FlatList 
+            <FlatList
                 data={selectedMeals}
                 renderItem={renderMealItems}
             />
