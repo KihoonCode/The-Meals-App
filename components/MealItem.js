@@ -37,16 +37,20 @@ const styles = StyleSheet.create({
     container: {
         height: 200,
         width: '80%',
-        backgroundColor: '#f7f7f7'
+        backgroundColor: '#f7f7f7',
+        marginVertical: '5%',
+        borderRadius: 10,
+        overflow: 'hidden'
     },
     mealContainer: {
         width: '100%'
     },
     mealMain: {
-        height: '90%'
+        height: '90%',
+        justifyContent: 'flex-end'
     }, 
     title: {
-
+        backgroundColor: '#f7f7f7'
     },
     bgImage: {
         height: '100%',
@@ -57,7 +61,8 @@ const styles = StyleSheet.create({
         height: '10%',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingHorizontal: 10
+        paddingHorizontal: 10,
+        backgroundColor: '#f7f7f7'
     }
 });
 
