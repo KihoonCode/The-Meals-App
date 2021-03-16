@@ -38,13 +38,9 @@ const CategoryMealScreen = props => {
 
     return (
         <View style={styles.screen}>
-            <FlatList
+            <FlatList style={styles.temp}
                 data={selectedMeals}
                 renderItem={renderMealItems}
-            />
-            <Button
-                title='Go to MealDetail'
-                onPress={() => props.navigation.navigate({ routeName: 'MealDetail' })}
             />
         </View>
     );
@@ -66,6 +62,9 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    temp: {
+        width: '90%'
     }
 });
 
