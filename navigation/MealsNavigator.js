@@ -1,7 +1,8 @@
 import React from 'react';
 import { createAppContainer } from 'react-navigation';
-import { createStackNavigator, createDrawerNavigator } from 'react-navigation-stack';
+import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { createDrawerNavigator } from 'react-navigation-drawer'
 import { Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import {
@@ -88,9 +89,24 @@ const FilterMenu = createStackNavigator({
     FilterMenu: FilterScreen
 });
 
-const DrawerNav = createDrawerNavigator({
-    HomeMenu: BottomTab,
-    FilterMenu: FilterMenu
-});
+const DrawerNav = createDrawerNavigator(
+    {
+        HomeMenu: {
+            screen: BottomTab, navigationOptions: {
+                drawerLabel: 'Meals'
+            }
+        },
+        FilterMenu: {
+            screen: FilterMenu, navigationOptions: {
+                drawerLabel: 'Filters'
+            }
+        }
+    },
+    {
+        contentOptions: {
+            activeTintColor: Colors.accentColor
+        }
+    }
+);
 
 export default createAppContainer(DrawerNav);

@@ -1,13 +1,13 @@
 import React from 'react';
 import {
     StyleSheet,
-    View,
-    Text,
     FlatList
 } from 'react-native';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
-import { CATEGORIES } from '../data/dummy-data';
+import CustomHeaderButton from '../components/CustomHeaderButton';
 import CategoryGridTile from '../components/CategoryGridTile';
+import { CATEGORIES } from '../data/dummy-data';
 
 const CategoriesScreen = props => {
 
@@ -41,8 +41,21 @@ const CategoriesScreen = props => {
 };
 
 // Top header style 
-CategoriesScreen.navigationOptions = {
-    headerTitle: 'Meal Categories',
+CategoriesScreen.navigationOptions = navData => {
+    return {
+        headerTitle: 'Meal Categories',
+        headerLeft: (
+            <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+                <Item
+                    title='DrawerNav'
+                    iconName='ios-menu'
+                    onPress={() => {
+                        navData.navigation.toggleDrawer();
+                    }}
+                />
+            </HeaderButtons>
+        )
+    };
 }
 
 // Ovearall Style
