@@ -9,7 +9,6 @@ import {
     createMaterialBottomTabNavigator
 } from 'react-navigation-material-bottom-tabs';
 
-
 import CategoriesScreen from '../screens/CategoriesScreen';
 import CategoryMealScreen from '../screens/CategoryMealScreen';
 import MealDetailScreen from '../screens/MealDetailScreen';
@@ -18,6 +17,7 @@ import FilterScreen from '../screens/FilterScreen';
 
 import Colors from '../constants/Colors';
 
+// whether this app is running on android
 const isAndroid = Platform.OS === 'android';
 
 const defaultNavigationOptions = {
@@ -105,6 +105,9 @@ const DrawerNav = createDrawerNavigator(
     {
         contentOptions: {
             activeTintColor: Colors.accentColor
+        },
+        navigationOptions: {
+            gestureEnabled: false
         }
     }
 );
