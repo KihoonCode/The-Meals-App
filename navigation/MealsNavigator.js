@@ -107,7 +107,8 @@ const DrawerNav = createDrawerNavigator(
             activeTintColor: Colors.accentColor
         },
         navigationOptions: {
-            gestureEnabled: false
+            gestureEnabled: false,
+            drawerLockMode: 'locked-open'
         }
     }
 );
