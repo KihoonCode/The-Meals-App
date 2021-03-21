@@ -30,20 +30,22 @@ const MealList = props => {
     }
 
     return (
-        <View style={styles.screen}>
+        <View style={styles.list}>
             <FlatList
                 data={props.data}
                 renderItem={renderMealItems}
+                showsVerticalScrollIndicator={false}
             />
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    screen: {
+    list: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        padding: 15
     }
 });
 
