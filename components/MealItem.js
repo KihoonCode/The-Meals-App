@@ -7,6 +7,8 @@ import {
     ImageBackground
 } from 'react-native';
 
+import Colors from '../constants/Colors';
+
 const MealItem = props => {
     return (
         <View style={styles.container}>
@@ -37,7 +39,7 @@ const styles = StyleSheet.create({
     container: {
         height: 200,
         width: '100%',
-        backgroundColor: '#d3d3d3',
+        backgroundColor: Colors.accentColor,
         marginVertical: '5%',
         borderRadius: 10,
         overflow: 'hidden'
@@ -47,7 +49,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     }, 
     title: {
-        backgroundColor: '#d3d3d3'
+        backgroundColor: Colors.accentColor,
+        padding: 5
     },
     bgImage: {
         height: '100%',
@@ -59,7 +62,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingHorizontal: 10,
-        backgroundColor: '#d3d3d3'
+        backgroundColor: Colors.accentColor
     }
 });
 

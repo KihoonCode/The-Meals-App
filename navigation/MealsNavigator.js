@@ -107,6 +107,8 @@ const DrawerNav = createDrawerNavigator(
             activeTintColor: Colors.accentColor
         },
         navigationOptions: {
+            // trying to disable drawer gesture (swipe) because it also works in fav
+            // screen.
             gestureEnabled: false,
             drawerLockMode: 'locked-open'
         }

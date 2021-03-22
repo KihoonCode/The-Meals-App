@@ -5,6 +5,7 @@ import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 import CustomHeaderButton from '../components/CustomHeaderButton';
 import { MEALS } from '../data/dummy-data';
+import Colors from '../constants/Colors';
 
 const ListItem = props => {
     return (
@@ -66,7 +67,8 @@ const styles = StyleSheet.create({
     },
     detail: {
         flexDirection: 'row',
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
+        backgroundColor: Colors.accentColor
     },
     listItem: {
         marginVertical: 5,
